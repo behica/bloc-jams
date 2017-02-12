@@ -28,17 +28,32 @@ var albumMarconi = {
     ]
 };
 
-var createSongRow = function(songNumber, songName, songLength){
-    var template =
-        '<tr class="album-view-song-item">'
-        + '   <td class="song-item-number"> + songNumber + '</td>'
-        + '   <td class="song-item-title"> + songName + '</td>'
-        + '   <td class="song-item-duration"> + songLength + '</td>'
-        + '</tr>'
-        ;
-    
-    return template;
+var albumPJTen = {
+    title: 'Ten',
+    artist: 'Pearl Jam',
+    label: 'Epic',
+    year: '1991',
+    albumArtUrl: 'https://en.wikipedia.org/wiki/File:PearlJam-Ten2.jpg',
+    songs: [
+        { title: 'Once', duration: '3:51' },
+        { title: 'Even Flow', duration: '4:53' },
+        { title: 'Alive', duration: '5:41'},
+        { title: 'Why Go', duration: '3:20' },
+        { title: 'Black', duration: '5:43'}
+    ]
 };
+
+ var createSongRow = function(songNumber, songName, songLength) {
+     var template =
+        '<tr class="album-view-song-item">'
+      + '  <td class="song-item-number">' + songNumber + '</td>'
+      + '  <td class="song-item-title">' + songName + '</td>'
+      + '  <td class="song-item-duration">' + songLength + '</td>'
+      + '</tr>'
+      ;
+ 
+     return template;
+ };
 
 var setCurrentAlbum = function(album) {
      // #1
