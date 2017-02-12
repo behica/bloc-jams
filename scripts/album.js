@@ -33,7 +33,7 @@ var albumPJTen = {
     artist: 'Pearl Jam',
     label: 'Epic',
     year: '1991',
-    albumArtUrl: 'https://en.wikipedia.org/wiki/File:PearlJam-Ten2.jpg',
+    albumArtUrl: 'https://upload.wikimedia.org/wikipedia/en/2/2d/PearlJam-Ten2.jpg',
     songs: [
         { title: 'Once', duration: '3:51' },
         { title: 'Even Flow', duration: '4:53' },
@@ -42,6 +42,10 @@ var albumPJTen = {
         { title: 'Black', duration: '5:43'}
     ]
 };
+
+var albumsArray = [albumPicasso, albumMarconi, albumPJTen];
+
+var albumStart = 1;
 
  var createSongRow = function(songNumber, songName, songLength) {
      var template =
@@ -77,7 +81,22 @@ var setCurrentAlbum = function(album) {
          albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
      }
  };
- 
+
+var switchAlbum = function() {
+    if(albumStart === 1){
+    setCurrentAlbum(albumsArray[albumStart]);
+    albumStart = 2;
+    } else if(albumStart === 2){
+        setCurrentAlbum(albumsArray[albumStart]);
+        albumStart = 0;
+    } else if(albumStart === 0){
+        setCurrentAlbum(albumsArray[albumStart]);
+        albumStart = 1;
+    }    
+};
+
  window.onload = function() {
      setCurrentAlbum(albumPicasso);
  };
+
+document.getElementsByClassName('album-cover-art')[0].addEventListener('click', switchAlbum);
